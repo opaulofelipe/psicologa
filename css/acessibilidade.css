@@ -1,0 +1,53 @@
+/* Painel de acessibilidade: não altera o design padrão do site */
+.a11y-raiz { position: fixed; inset: auto; width: 0; height: 0; margin: 0; padding: 0; border: 0; overflow: visible; background: transparent; }
+.a11y-gatilho { position: fixed; right: 1rem; bottom: 1rem; z-index: 2147483647; width: 56px; height: 56px; border-radius: 50%; border: 3px solid #fff; background: var(--espresso); color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 4px 16px rgba(90, 42, 39, .35); }
+.a11y-gatilho:hover { background: var(--clay); }
+.a11y-painel { position: fixed; right: 1rem; bottom: 5rem; z-index: 2147483647; width: min(340px, 100vw - 2rem); max-height: calc(100vh - 7rem); overflow-y: auto; padding: 1.1rem; background: var(--bg); color: var(--texto); border: 1px solid var(--taupe); border-radius: 14px; box-shadow: 0 12px 32px rgba(90, 42, 39, .25); }
+.a11y-painel[hidden] { display: none; }
+.a11y-painel h2 { font-size: 1.2rem; margin: 0 0 .8rem; }
+.a11y-painel p { margin: 0 0 .4rem; font-weight: 600; color: var(--espresso); font-size: .95rem; }
+.a11y-tam { display: grid; grid-template-columns: 1fr auto 1fr; gap: .5rem; align-items: center; margin-bottom: 1rem; text-align: center; }
+.a11y-painel button { font: inherit; font-size: .95rem; min-height: 48px; padding: .5rem .8rem; cursor: pointer; color: var(--espresso); background: transparent; border: 1.5px solid var(--bark); border-radius: 10px; }
+.a11y-painel button:hover { background: var(--bg-alt); }
+.a11y-lista { display: grid; gap: .5rem; }
+.a11y-lista button { text-align: left; }
+.a11y-painel button[aria-pressed="true"] { background: var(--espresso); border-color: var(--espresso); color: #fff; font-weight: 600; }
+.a11y-painel button[aria-pressed="true"]::before { content: "\2713\00a0"; }
+.a11y-painel .a11y-reset { width: 100%; margin-top: .8rem; border-style: dashed; }
+.a11y-nota { margin: .8rem 0 0; font-size: .8rem; color: var(--bark); font-weight: 400 !important; }
+
+/* Espaçamento do texto (WCAG 1.4.12) */
+html.a11y-espaco body, html.a11y-espaco body * { line-height: 1.8 !important; letter-spacing: .12em; word-spacing: .16em; }
+html.a11y-espaco p { margin-bottom: 2em; }
+
+/* Fonte simples e legível */
+html.a11y-fonte body, html.a11y-fonte body * { font-family: Verdana, Tahoma, Arial, sans-serif !important; }
+
+/* Destacar links */
+html.a11y-links a:not(.btn) { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; background: #ffe98a; color: #000; }
+
+/* Pausar animações */
+html.a11y-parar { scroll-behavior: auto; }
+html.a11y-parar *, html.a11y-parar *::before, html.a11y-parar *::after { animation: none !important; transition: none !important; }
+
+/* Alto contraste */
+html.a11y-contraste { --bg: #000; --bg-alt: #000; --texto: #fff; --espresso: #fff; --bark: #fff; --clay: #ffd54a; --taupe: #fff; --silver: #fff; }
+html.a11y-contraste body { background: #000; color: #fff; }
+html.a11y-contraste .topo { background: #000; border-bottom: 2px solid #fff; }
+html.a11y-contraste .menu { background: #000; }
+html.a11y-contraste .sobre, html.a11y-contraste .terapia, html.a11y-contraste .contato, html.a11y-contraste .rodape, html.a11y-contraste .tema--destaque { background: #000; color: #fff; }
+html.a11y-contraste .terapia, html.a11y-contraste .contato, html.a11y-contraste .rodape { border-top: 2px solid #fff; }
+html.a11y-contraste .modos div { background: #000; border-color: #fff; }
+html.a11y-contraste .tema--destaque { border-color: #fff; }
+html.a11y-contraste .btn, html.a11y-contraste .btn--claro { background: #ffd54a; border-color: #ffd54a; color: #000; }
+html.a11y-contraste .btn:hover, html.a11y-contraste .btn--claro:hover { background: #fff; border-color: #fff; color: #000; }
+html.a11y-contraste .btn--ghost, html.a11y-contraste .btn--ghost-claro { background: transparent; border-color: #fff; color: #fff; }
+html.a11y-contraste .btn--ghost:hover, html.a11y-contraste .btn--ghost-claro:hover { background: #fff; color: #000; }
+html.a11y-contraste .passos li::before { background: #ffd54a; color: #000; }
+html.a11y-contraste .a11y-gatilho { background: #ffd54a; color: #000; border-color: #000; }
+html.a11y-contraste .a11y-painel { background: #000; border: 2px solid #fff; color: #fff; }
+html.a11y-contraste .a11y-painel button { color: #fff; border-color: #fff; }
+html.a11y-contraste .a11y-painel button[aria-pressed="true"] { background: #ffd54a; color: #000; border-color: #ffd54a; }
+
+/* Esconde o VLibras por completo quando desativado */
+.a11y-libras-off { display: none !important; }
